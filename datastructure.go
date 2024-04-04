@@ -17,6 +17,9 @@ func main() {
 	var splice []int32 = []int32{}
 	newsplice := append(splice, 2)
 
+	myarr[0] = 10
+	fmt.Println(myarr)
+
 	fmt.Printf("Splice: %v", newsplice)
 
 }
