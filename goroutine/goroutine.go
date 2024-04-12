@@ -11,6 +11,7 @@ import (
 
 var results = []string{}
 var wg = sync.WaitGroup{}
+var m = sync.Mutex{}
 
 func main() {
 
@@ -36,9 +37,11 @@ func insertToDatabase(userId int) string {
 }
 
 func insert(id int) string {
-	time.Sleep(2 * time.Second)
+	time.Sleep(1 * time.Second)
 	var result = "id" + strconv.Itoa(id)
+	m.Lock()
 	results = append(results, result)
+	m.Unlock()
 	return result
 }
 
